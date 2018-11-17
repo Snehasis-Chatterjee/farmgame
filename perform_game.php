@@ -10,7 +10,7 @@ $final_result_array[] = array($no_of_times_button_clicked => $a);
 
   
   $_SESSION['final_result_array'] = $final_result_array;
-print_r($final_result_array);
+//print_r($final_result_array);
   //echo json_encode($final_result_array);
 //unset($_SESSION['final_result_array']);
 
