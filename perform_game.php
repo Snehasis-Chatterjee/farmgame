@@ -8,7 +8,7 @@ if(isset($_SESSION['animals']) && isset($_SESSION['animal_life']) && isset($_SES
 else
 {
 	$_SESSION['animals'] = array("Farmer","Cow1","Cow2","Bunny1","Bunny2","Bunny3","Bunny4");
-	$_SESSION['animal_life'] = array('F'=>15,'C1'=>10,'C2'=>10,'B1'=>8,'B2'=>8,'B3'=>8,'B4'=>8);
+	$_SESSION['animal_life'] = array("Farmer"=>15,"Cow1"=>10,"Cow2"=>10,"Bunny1"=>8,"Bunny2"=>8,"Bunny3"=>8,"Bunny4"=>8);
 	perform_game_logic();
 }
 
@@ -20,79 +20,127 @@ function perform_game_logic()
 
 	switch ($random_animal) {
 		case "Farmer":
-			$_SESSION['animal_life']['F'] = 15;
-			$_SESSION['animal_life']['C1'] -= 1;
-			$_SESSION['animal_life']['C2'] -= 1;
-			$_SESSION['animal_life']['B1'] -= 1;
-			$_SESSION['animal_life']['B2'] -= 1;
-			$_SESSION['animal_life']['B3'] -= 1;
-			$_SESSION['animal_life']['B4'] -= 1;
+			$_SESSION['animal_life']['Farmer'] = 15;
+			$_SESSION['animal_life']['Cow1'] -= 1;
+			$_SESSION['animal_life']['Cow2'] -= 1;
+			$_SESSION['animal_life']['Bunny1'] -= 1;
+			$_SESSION['animal_life']['Bunny2'] -= 1;
+			$_SESSION['animal_life']['Bunny3'] -= 1;
+			$_SESSION['animal_life']['Bunny4'] -= 1;
 			break;
 		case "Cow1":
-			$_SESSION['animal_life']['C1'] = 10;
-			$_SESSION['animal_life']['F'] -= 1;
-			$_SESSION['animal_life']['C2'] -= 1;
-			$_SESSION['animal_life']['B1'] -= 1;
-			$_SESSION['animal_life']['B2'] -= 1;
-			$_SESSION['animal_life']['B3'] -= 1;
-			$_SESSION['animal_life']['B4'] -= 1;
+			$_SESSION['animal_life']['Farmer'] -= 1;
+			$_SESSION['animal_life']['Cow1'] = 10;
+			$_SESSION['animal_life']['Cow2'] -= 1;
+			$_SESSION['animal_life']['Bunny1'] -= 1;
+			$_SESSION['animal_life']['Bunny2'] -= 1;
+			$_SESSION['animal_life']['Bunny3'] -= 1;
+			$_SESSION['animal_life']['Bunny4'] -= 1;
 			break;
 		case "Cow2":
-			$_SESSION['animal_life']['C2'] = 10;
-			$_SESSION['animal_life']['F'] -= 1;
-			$_SESSION['animal_life']['C1'] -= 1;
-			$_SESSION['animal_life']['B1'] -= 1;
-			$_SESSION['animal_life']['B2'] -= 1;
-			$_SESSION['animal_life']['B3'] -= 1;
-			$_SESSION['animal_life']['B4'] -= 1;
+			$_SESSION['animal_life']['Farmer'] -= 1;
+			$_SESSION['animal_life']['Cow1'] -= 1;
+			$_SESSION['animal_life']['Cow2'] = 10;
+			$_SESSION['animal_life']['Bunny1'] -= 1;
+			$_SESSION['animal_life']['Bunny2'] -= 1;
+			$_SESSION['animal_life']['Bunny3'] -= 1;
+			$_SESSION['animal_life']['Bunny4'] -= 1;
 			break;
 		case "Bunny1":
-			$_SESSION['animal_life']['B1'] = 8;
-			$_SESSION['animal_life']['C1'] -= 1;
-			$_SESSION['animal_life']['C2'] -= 1;
-			$_SESSION['animal_life']['F'] -= 1;
-			$_SESSION['animal_life']['B2'] -= 1;
-			$_SESSION['animal_life']['B3'] -= 1;
-			$_SESSION['animal_life']['B4'] -= 1;
+			$_SESSION['animal_life']['Farmer'] -= 1;
+			$_SESSION['animal_life']['Cow1'] -= 1;
+			$_SESSION['animal_life']['Cow2'] -= 1;
+			$_SESSION['animal_life']['Bunny1'] = 8;
+			$_SESSION['animal_life']['Bunny2'] -= 1;
+			$_SESSION['animal_life']['Bunny3'] -= 1;
+			$_SESSION['animal_life']['Bunny4'] -= 1;
 			break;
 		case "Bunny2":
-			$_SESSION['animal_life']['B2'] = 8;
-			$_SESSION['animal_life']['C1'] -= 1;
-			$_SESSION['animal_life']['C2'] -= 1;
-			$_SESSION['animal_life']['B1'] -= 1;
-			$_SESSION['animal_life']['F'] -= 1;
-			$_SESSION['animal_life']['B3'] -= 1;
-			$_SESSION['animal_life']['B4'] -= 1;
+			$_SESSION['animal_life']['Farmer'] -= 1;
+			$_SESSION['animal_life']['Cow1'] -= 1;
+			$_SESSION['animal_life']['Cow2'] -= 1;
+			$_SESSION['animal_life']['Bunny1'] -= 1;
+			$_SESSION['animal_life']['Bunny2'] = 8;
+			$_SESSION['animal_life']['Bunny3'] -= 1;
+			$_SESSION['animal_life']['Bunny4'] -= 1;
 			break;
 		case "Bunny3":
-			$_SESSION['animal_life']['B3'] = 8;
-			$_SESSION['animal_life']['C1'] -= 1;
-			$_SESSION['animal_life']['C2'] -= 1;
-			$_SESSION['animal_life']['B1'] -= 1;
-			$_SESSION['animal_life']['B2'] -= 1;
-			$_SESSION['animal_life']['F'] -= 1;
-			$_SESSION['animal_life']['B4'] -= 1;
+			$_SESSION['animal_life']['Farmer'] -= 1;
+			$_SESSION['animal_life']['Cow1'] -= 1;
+			$_SESSION['animal_life']['Cow2'] -= 1;
+			$_SESSION['animal_life']['Bunny1'] -= 1;
+			$_SESSION['animal_life']['Bunny2'] -= 1;
+			$_SESSION['animal_life']['Bunny3'] = 8;
+			$_SESSION['animal_life']['Bunny4'] -= 1;
 			break;
 		case "Bunny4":
-			$_SESSION['animal_life']['B4'] = 8;
-			$_SESSION['animal_life']['C1'] -= 1;
-			$_SESSION['animal_life']['C2'] -= 1;
-			$_SESSION['animal_life']['B1'] -= 1;
-			$_SESSION['animal_life']['B2'] -= 1;
-			$_SESSION['animal_life']['B3'] -= 1;
-			$_SESSION['animal_life']['F'] -= 1;
+			$_SESSION['animal_life']['Farmer'] -= 1;
+			$_SESSION['animal_life']['Cow1'] -= 1;
+			$_SESSION['animal_life']['Cow2'] -= 1;
+			$_SESSION['animal_life']['Bunny1'] -= 1;
+			$_SESSION['animal_life']['Bunny2'] -= 1;
+			$_SESSION['animal_life']['Bunny3'] -= 1;
+			$_SESSION['animal_life']['Bunny4'] = 8;
 			break;
 	} 
 	
-	
+	foreach($_SESSION['animal_life'] as $key => $value)
+	{
+		if($value == '0')
+		{
+			if($key == 'Farmer' || $no_of_times_button_clicked == '10')
+			{
+					$counter = 0;
+					if(in_array('Farmer', $_SESSION['animals']))
+					{
+						$counter++;
+					}
+					if(in_array('Cow1', $_SESSION['animals']) || in_array('Cow2', $_SESSION['animals']))
+					{
+						$counter++;
+					}
+					if(in_array('Bunny1', $_SESSION['animals']) || in_array('Bunny2', $_SESSION['animals']) || in_array('Bunny3', $_SESSION['animals']) || in_array('Bunny4', $_SESSION['animals']))
+					{
+						$counter++;
+					}
+					if($counter == 3)
+					{
+						$msg = "Game Over ! Maximum Clicks Reached. You Won.";
+					}
+					else
+					{
+						$msg = "Game Over ! Maximum Clicks Reached. You Lose.";
+					}
 
-	//print_r($_SESSION['animal_life']);
+				if($no_of_times_button_clicked < '10')
+				{
+					echo json_encode("Game over.Farmer Died.");
+				}
+				else
+				{   
+					echo json_encode($msg);					
+				}
+				unset($_SESSION['animals']);
+ 				unset($_SESSION['animal_life']);
+ 				unset($_SESSION['final_result']); 				
+				break;				
+			}
+			else
+			{
+				$search_animal = array_search($key,$_SESSION['animals']);				
+				unset($_SESSION['animals'][$search_animal]);		
+
+			}
+		}
+	}
 }
 //echo $random_animal;
- //print_r($_SESSION['animal_life']);
-//  unset($_SESSION['animals']);
-//  unset($_SESSION['animal_life']);
-// unset($_SESSION['final_result']);
+
+ print_r($_SESSION['animal_life']);
+ print_r($_SESSION['animals']);
+  //  unset($_SESSION['animals']);
+  //  unset($_SESSION['animal_life']);
+  // unset($_SESSION['final_result']);
 
 
 
