@@ -7,7 +7,7 @@
 	<style>
 	.game-body{
 		
-			background: url(farm_image.jpeg) no-repeat center center fixed;
+			/* background: url(farm_pic.jpg) no-repeat center center fixed; */
 			-webkit-background-size: cover;
 			  -moz-background-size: cover;
 			  -o-background-size: cover;
