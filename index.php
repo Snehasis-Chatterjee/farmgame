@@ -2,6 +2,8 @@
 <head>
 	<title>Farm Game</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="sweetalert.css" rel="stylesheet">
+	<script src="sweetalert.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
@@ -55,8 +57,22 @@
                     
                     success: function(data) {
                         
-                        alert(data);
-
+                       if(data == "Maximum Clicks Reached. You Lose !")
+                       {
+                       	swal({title: "Game Over !", text: data, type: "error"});
+                       }
+                       if(data == "Maximum Clicks Reached. You Won !")
+                       {
+                       swal({title: "Wow !",text: data,type: "success"});
+                       }
+                       if(data == "Hard Luck ! One or Some animal(s) died.")
+                       {
+                       swal({title: "Dead !",text: data,type: "warning"});
+                       }
+                       if(data == "Farmer Died ! You Lose !")
+                       {
+                       	swal({title: "Game Over !", text: data, type: "error"});
+                       }
 
                     }
                 });

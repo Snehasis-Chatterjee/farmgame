@@ -115,7 +115,7 @@ function perform_game_logic()
 			{
 			if ($key == 'Farmer')
 				{
-				$msg = "Farmer Died ! Game Over. You Lose !";
+				$msg = "Farmer Died ! You Lose !";
 				unset($_SESSION['animals']);
 				unset($_SESSION['animal_life']);
 				unset($_SESSION['final_result']);
@@ -153,14 +153,14 @@ function perform_game_logic()
 
 		if ($counter == 3)
 			{
-			$msg = "Game Over ! Maximum Clicks Reached. You Won !";
+			$msg = "Maximum Clicks Reached. You Won !";
 			unset($_SESSION['animals']);
 			unset($_SESSION['animal_life']);
 			unset($_SESSION['final_result']);
 			}
 		  else
 			{
-			$msg = "Game Over ! Maximum Clicks Reached. You Lose !";
+			$msg = "Maximum Clicks Reached. You Lose !";
 			unset($_SESSION['animals']);
 			unset($_SESSION['animal_life']);
 			unset($_SESSION['final_result']);
@@ -169,9 +169,7 @@ function perform_game_logic()
 
 	if ($msg)
 		{
-		echo json_encode($msg);
-		
+		echo json_encode($msg);		
 		}
 	}
-
 ?>
