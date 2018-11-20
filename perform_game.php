@@ -27,7 +27,7 @@ if (isset($_SESSION['animals']) && isset($_SESSION['animal_life']) && isset($_SE
 	);
 	perform_game_logic();
 	}
-
+	
 function perform_game_logic()
 	{
 	$no_of_times_button_clicked = $_POST['button_clicked'];
@@ -35,6 +35,7 @@ function perform_game_logic()
 	$_SESSION['final_result'][] = array(
 		$no_of_times_button_clicked => $random_animal
 	);
+		
 	switch ($random_animal)
 		{
 	case "Farmer":
@@ -115,7 +116,7 @@ function perform_game_logic()
 			{
 			if ($key == 'Farmer')
 				{
-				$msg = "Farmer Died ! You Lose !";
+				$msg = "FARMER_DEAD_LOSE";
 				unset($_SESSION['animals']);
 				unset($_SESSION['animal_life']);
 				unset($_SESSION['final_result']);
@@ -129,7 +130,7 @@ function perform_game_logic()
 			$check_animals_left = count($_SESSION['animals']);
 			if($check_animals_left < $count_total_animals)
 			{
-				$msg = "Hard Luck ! One or Some animal(s) died.";
+				$msg = "HARD_LUCK_DIED";
 			}
 		}
 
@@ -153,14 +154,14 @@ function perform_game_logic()
 
 		if ($counter == 3)
 			{
-			$msg = "Maximum Clicks Reached. You Won !";
+			$msg = "MAX_CLICK_WON";
 			unset($_SESSION['animals']);
 			unset($_SESSION['animal_life']);
 			unset($_SESSION['final_result']);
 			}
 		  else
 			{
-			$msg = "Maximum Clicks Reached. You Lose !";
+			$msg = "MAX_CLICK_LOSE";
 			unset($_SESSION['animals']);
 			unset($_SESSION['animal_life']);
 			unset($_SESSION['final_result']);
@@ -172,4 +173,9 @@ function perform_game_logic()
 		echo json_encode($msg);		
 		}
 	}
+print_r($_SESSION['animal_life']);
+print_r($_SESSION['animals']);
+// unset($_SESSION['animals']);
+// unset($_SESSION['animal_life']);
+// unset($_SESSION['final_result']);
 ?>
