@@ -33,9 +33,10 @@ if (isset($_SESSION['animals']) && isset($_SESSION['animal_life']) && isset($_SE
 
 function perform_game_logic()
 	{
-	$no_of_times_button_clicked = $_POST['button_clicked'];
+	$no_of_times_button_clicked = (isset($_POST['button_clicked']) ? $_POST['button_clicked'] : '');
 	$random_animal = $_SESSION['animals'][array_rand($_SESSION['animals'], 1) ];
-	$_SESSION['final_result'].= $no_of_times_button_clicked . " => '" . $random_animal . "' ,"; //chosen randomly one animal and kept is session as a string which will be useful to show in which round which animal fed.
+	$_SESSION['final_result'] = (isset($_SESSION['final_result']) ? $_SESSION['final_result'] : '');
+	$_SESSION['final_result'].= $no_of_times_button_clicked . " => " . $random_animal . ","; //chosen randomly one animal and kept is session as a string which will be useful to show in which round which animal fed.
 	/* below is the code to set initial life of the random animal selected and to do -1 from other animals which are not selected for each click  */
 	switch ($random_animal)
 		{
@@ -175,19 +176,17 @@ function perform_game_logic()
 	}
 
 /* below is the code when ajax call made to get the results by clicking the get results button */
-$result_request = $_POST['get_results'];
+$result_request = (isset($_POST['get_results']) ? $_POST['get_results'] : '');
 
 if ($result_request == 'true')
 	{
 	$result = rtrim($_SESSION['final_result'], ",");
-	$res_arr =array($result);
-	//$final_result_array = explode(",", $result);
-	print_r($res_arr);
-	echo json_encode($res_arr[0][1]);
+	$final_result_array = explode(",", $result);
+	echo json_encode($final_result_array);
 	}
 
 /* below is the code when ajax call made to end the game and unset the result session */
-$end_result_session = $_POST['end_result_session'];
+$end_result_session = (isset($_POST['end_result_session']) ? $_POST['end_result_session'] : '');
 
 if ($end_result_session == 'true')
 	{
@@ -196,7 +195,7 @@ if ($end_result_session == 'true')
 	}
 
 /* below is  the code for making animals red in animals bar where array_diff function is used to check which animals are left and which are died and that will be shown accordingly in the animals bar */
-$check_animals = $_POST['check_animals'];
+$check_animals = (isset($_POST['check_animals']) ? $_POST['check_animals'] : '');
 
 if ($check_animals == 'true')
 	{
